@@ -175,7 +175,7 @@
                     
                     if ($level == 1 && ($mark == 4 || $mark == 5) || $level == 2 && $mark == 5) // контроль уровня сложности
                         ++$level;
-                    else if ($level == 3 && ($mark == 2 || $mark == 3) || $level == 2 && $mark == 2)
+                    else if ($level == 3 && ($mark == 3 || $mark == 2) || $level == 2 && $mark == 2)
                         --$level;
                 }
                 
