@@ -1,0 +1,439 @@
+@import url(https://fonts.googleapis.com/css?family=Cuprum:400,400i&subset=latin,cyrillic);
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	/*font-size: 100%;*/
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	/*line-height: 1;*/
+    color: black;
+}
+
+ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/*table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}*/
+
+/* отсюда мой код =) */
+body{
+    background-color: #ccbccc;
+    color: purple;
+}
+
+hr{
+    color: purple;
+}
+
+ol{
+    padding: 10px 0px;
+}
+
+#page{
+    z-index: 10;
+    position: absolute;
+    left: 250px;
+    top: 100px;
+    margin-left: 100px;
+    margin-right: 150px;
+    font-family: "Arial", sans-serif;
+    line-height: 30px;
+    /*padding: 10px;*/
+}
+
+#page p{
+    padding: 10px 0px;
+}
+
+.strong-red{
+    margin-top: 300px;
+    color: #5cb4ff;
+    /*font-weight: bold;*/
+    text-align:justify;
+    text-decoration:none;
+    /*text-transform:uppercase;*/
+    text-indent:30px; /*отступ*/
+    letter-spacing: 3px;
+    word-spacing: 5px;
+    line-height: 30px;
+    font-family: "Cuprum", sans-serif;
+    font-style: italic;
+    font-variant: small-caps;
+}
+
+.light-blue{
+    font-weight: bold;
+    color: blue;
+}
+
+.light-blue{
+    font-size: 28px;
+    color: black;
+}
+
+#styles li{
+    color: darkgoldenrod;
+    font-family: "Cuprum", sans-serif;
+    /*list-style-type: circle;
+    list-style-image: url(images/av.jpg);
+    list-style-position: inside;*/
+    list-style: circle url(images/gta.png) inside;
+    padding: 5px;
+    border: 1px solid #fff;
+}
+
+#styles li:hover{
+    background: #000;
+}
+
+#navigation{
+    z-index: 20;
+    position: fixed;
+    margin-left: 20%;
+    height: 65px; /*имеется в виду высота фона*/
+    background-color: #ccaccc;
+}
+
+#navigation ul li{
+    float:left; /*порядок: начинаем слева*/
+    position:relative; /*чтобы соседи расступились и без этого выпадающий список не выпадает*/
+    width: 300px;
+    text-align: center;
+}
+
+#navigation ul li a{
+    color: purple;
+    letter-spacing: 5px;
+    padding: 0 25px;  /*на сколько сдвигать между пунктами*/ 
+    font-family: "Comic Sans MS", sans-serif;
+    font-variant:small-caps;
+    font-size: 20pt;
+    font-weight:bold;
+    text-decoration:none;
+    line-height: 70px; /*собственно буквы*/
+    display:block; /*мало что меняется... вообще ничего! по идее растягивать на всю ширину родительского блока*/
+    height: 65px; /*высота фона*/
+}
+
+#navigation ul li a:hover{
+    background: rgba(104, 71, 171, 0.71);
+    text-decoration: underline;
+}
+
+.sidebar{
+    z-index: 20;
+    background-color:#ccaccc;
+    position: fixed;
+    left: 10px;
+    top: 100px;
+    width: 250px;
+    float: left;
+    color: brown;
+    font-family: "Cuprum", sans-serif;
+    border-color: chocolate;
+    border-width: 1px;
+    border-style: solid;
+    line-height: 30px; /*собственно буквы*/
+    padding-left: 10px;
+    font-size: 12pt;
+    height: 80%;
+}
+
+.sidebar ul li{
+    padding: 20px 10px;     
+}
+
+.sidebar a{
+    color: brown;
+    /*display:block; /*мало что меняется... вообще ничего! по идее растягивать на всю ширину родительского блока*/
+}
+
+#sidebar_i{
+    width: 150px;
+}
+
+.special {
+    background-color:rgba(250, 230, 0, 0.71);
+}
+
+button {
+    margin-top: 100px;
+    padding: 50px 30px;
+    background: crimson; /* Синий цвет фона */ 
+    color: yellow; /* Белые буквы */ 
+    font-size: 20pt; /* Размер шрифта в пунктах */
+    border-radius: 40px;
+}
+
+.ex{
+    padding: 0px 20px; 
+    list-style: disc;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 40pt;
+}
+
+h2{
+    font-size: 20pt;
+}
+
+.leftfoto{
+    float: left;
+    margin: 10px 20px 10px 0px;
+    font-family: "Cuprum", sans-serif;
+    text-align: center;
+}
+
+.rightfoto{
+    float: right;
+    margin: 10px 0px 10px 20px;
+    font-family: "Cuprum", sans-serif;
+    text-align: center;
+}
+
+#program{
+    z-index: 10;
+    position: absolute;
+    left: -150px;
+    top: 0px;
+   /* margin-left: 50px;
+    margin-right: 150px;*/
+    width: 480px;
+    height: 780px;
+    font-family: "Arial", sans-serif;
+    line-height: 30px;
+    /*padding: 10px;*/
+    padding-left: 20px;
+    padding-top: 20px;
+    border-color: chocolate;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #ddbabc;
+}
+
+#variables{
+    z-index: 10;
+    position: absolute;
+    left: 360px;
+    top: 0px;
+    /*margin-left: 100px;
+    margin-right: 150px;*/
+    width: 480px;
+    height: 210px;
+    font-family: "Arial", sans-serif;
+    line-height: 50px;
+    /*padding: 10px;*/
+    padding-left: 20px;
+    padding-top: 20px;
+    border-color: chocolate;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #cdbadc;
+}
+
+#variables p{
+    padding: 0px 0px;
+}
+
+.varr{
+    padding: 10px 10px 10px 10px;
+    border-style: solid;
+    border-color:green;
+    border-width: 2px;
+    color: crimson;
+}
+
+#stack{
+    color: crimson;
+}
+
+#stack1{
+    position: absolute;
+    left: 380px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    border-color: green;
+    border-width: 2px;
+    border-style: solid;
+    background-color: #ddccbb;
+    padding-left: 10px;
+}
+
+#stack2{
+    position: absolute;
+    left: 380px;
+    top: 50px;
+    width: 40px;
+    height: 40px;
+    border-color: green;
+    border-width: 2px;
+    border-style: solid;
+    background-color: #ddccbb;
+    padding-left: 10px;
+}
+
+#stack3{
+    position: absolute;
+    left: 380px;
+    top: 90px;
+    width: 40px;
+    height: 40px;
+    border-color: green;
+    border-width: 2px;
+    border-style: solid;
+    background-color: #ddccbb;
+    padding-left: 10px;
+}
+
+#stack4{
+    position: absolute;
+    left: 380px;
+    top: 130px;
+    width: 40px;
+    height: 40px;
+    border-color: green;
+    border-width: 2px;
+    border-style: solid;
+    background-color: #ddccbb;
+    padding-left: 10px;
+}
+
+#stack5{
+    position: absolute;
+    left: 380px;
+    top: 170px;
+    width: 40px;
+    height: 40px;
+    border-color: green;
+    border-width: 2px;
+    border-style: solid;
+    background-color: #ddccbb;
+    padding-left: 10px;
+}
+
+#mod_body{
+    z-index: 10;
+    position: absolute;
+    left: 360px;
+    top: 240px;
+    /*margin-left: 100px;
+    margin-right: 150px;*/
+    width: 480px;
+    height: 540px;
+    font-family: "Arial", sans-serif;
+    line-height: 30px;
+    /*padding: 10px;*/
+    padding-left: 20px;
+    padding-top: 20px;
+    border-color: chocolate;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #cdcebc;
+}
+
+#scheme{
+    z-index: 10;
+    position: absolute;
+    left: 870px;
+    top: 0px;
+    /*margin-left: 100px;
+    margin-right: 150px;*/
+    width: 650px;
+    height: 500px;
+    font-family: "Arial", sans-serif;
+    line-height: 30px;
+    /*padding: 10px;*/
+    border-color: chocolate;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#scheme canvas{
+    font-size: 30pt;
+}
+
+#submit {
+    margin-top: 10px;
+    padding: 5px 3px;
+    background: purple; /* Синий цвет фона */ 
+    color: yellow; /* Белые буквы */ 
+    font-size: 20pt; /* Размер шрифта в пунктах */
+    border-radius: 40px;
+}
+
+#supertext {
+    font-size: 40pt;
+}
+
+#center {
+    text-align: center;
+}
+
+table {
+    width: 600 px;
+    border-collapse: collapse; 
+    //line-height: 1.1;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 30 pt;
+    color: purple;
+}
+
+td {
+  width: 50%;
+  font-size: 20 pt;
+  padding: 5px 7px;
+  border: 3px solid purple;
+  vertical-align: middle;
+  text-align: center;
+  background: #CCBBFF;
+}
+
+.sleva {
+    margin-left:4em;
+    text-align:left;
+    display:block;
+}

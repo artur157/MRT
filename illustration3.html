@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Иллюстрация</title>
+        <link rel="stylesheet" href="css/myStyle.css" type="text/css">
+    </head>
+    <body>
+        <div id="navigation">
+            <ul>
+                <li><a href="theory1.html">Теория</a></li>
+                <li><a href="illustration1.html">Иллюстрация</a></li>
+                <li><a href="test.php">Тест</a></li>
+            </ul>
+        </div>
+        
+        <div class="sidebar" id="sidebar_i">
+            <ul>
+                <li><a href="illustration1.html">Сумма положительных элементов массива</a></li>
+                <li><a href="illustration2.html">Вычисление факториала</a></li>
+                <li><a href="illustration3.html" class="special">Числа Фибоначчи</a></li>
+            </ul>
+            <button id="but">Пуск</button>
+        </div>
+        
+        <div id="page">
+            <div id="program">
+<pre>var a: integer;
+
+function Fib(n: integer): integer;
+begin
+  if n > 1 then
+    Fib := Fib(n-1) + Fib(n-2)
+  else
+    Fib := 1;
+end;
+
+begin
+  <span id="s1">a := Fib(3);</span>  
+end. </pre>
+            </div>
+            
+            <div id="variables">
+                <p>a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= &nbsp;&nbsp;<span id="aa" class="varr">0</span></p> 
+                <p>n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= &nbsp;&nbsp;<span id="n" class="varr">0</span></p> 
+                <p>Fib&nbsp;&nbsp;&nbsp; = &nbsp;&nbsp;<span id="f" class="varr">0</span></p> 
+                <div id="stack"> 
+                    <span id="stack1"> </span>
+                    <span id="stack2"> </span>
+                    <span id="stack3"> </span>
+                    <span id="stack4"> </span>
+                    <span id="stack5"> </span>
+                </div>  
+            </div>
+            
+            <div id="mod_body">
+<pre>
+<span id="s2">n:= 3;</span>     
+<span id="s3">Fib:= Fib(2) + Fib(1);</span>  
+      
+<span id="s4">n:= 2;</span>    
+<span id="s5">Fib:= Fib(1) + Fib(0);</span>  
+     
+<span id="s6">n:= 1;</span>   
+<span id="s7">Fib:= 1;</span>   
+    
+<span id="s8">n:= 0;</span>   
+<span id="s9">Fib:= 1;</span> 
+
+<span id="s10">Fib:= 1 + 1;</span>  
+    
+<span id="s11">n:= 1;</span>   
+<span id="s12">Fib:= 1;</span> 
+    
+<span id="s13">Fib:= 2 + 1;</span>     
+</pre>
+            </div>
+            
+            <div id="scheme">
+                <canvas id="sch" width="650" height="500"></canvas>  
+            </div>
+        </div>
+        
+        <script src="scripts/jquery-3.1.1.min.js"></script>
+        <script>
+            var program = document.getElementById('program'),
+                s1 = document.getElementById('s1')
+                but = document.getElementById('but');
+            var kol = 0;
+            const inttime = 100;
+            var canvas = document.getElementById("sch");
+            var context = canvas.getContext("2d");
+            
+            context.fillStyle = "#515";
+            context.lineWidth=5;
+            context.strokeStyle="#515";
+            context.font = "16pt sans-serif";
+  
+            for (var j=2;j<14;++j){
+                $('#s'+j).hide();
+            }
+            
+            but.onclick = function() {
+                var h = setInterval(function() {
+                    ++kol;
+                    var s1 = document.getElementById('s1');
+                    switch(kol){
+                        case 1: s1.style.background="#fe7";
+                            break;
+                        case 2: s2.style.background="#fe7";
+                                $('#s2').fadeIn(inttime);
+                                $('#s3').fadeIn(inttime);
+                                $('#n').text(3);
+                                context.beginPath();
+                                context.moveTo(325,50);
+                                context.lineTo(325,100);
+                                context.stroke();
+                                context.beginPath();
+                                context.arc(325,100,10,0,2*Math.PI, true);
+                                context.fill();
+                                context.fillText("Fib(3)",355,100);
+                            break;
+                        case 3: s2.style.background="none";
+                                s3.style.background="#fe7";
+                            break;
+                        case 4: s4.style.background="#fe7";
+                                $('#s4').fadeIn(inttime);
+                                $('#s5').fadeIn(inttime);
+                                $('#n').text(2);
+                                context.beginPath();
+                                context.moveTo(325,100);
+                                context.lineTo(225,200);
+                                context.stroke();
+                                context.beginPath();
+                                context.arc(225,200,10,0,2*Math.PI, true);
+                                context.fill();
+                                context.fillText("Fib(2)",255,200);
+                            break;
+                        case 5: s4.style.background="none";
+                                s5.style.background="#fe7";
+                            break;
+                        case 6: s6.style.background="#fe7";
+                                $('#s6').fadeIn(inttime);
+                                $('#s7').fadeIn(inttime);
+                                $('#n').text(1);
+                                context.beginPath();
+                                context.moveTo(225,200);
+                                context.lineTo(125,300);
+                                context.stroke();
+                                context.beginPath();
+                                context.arc(125,300,10,0,2*Math.PI, true);
+                                context.fill();
+                                context.fillText("Fib(1)",155,300);
+                            break;
+                        case 7: s6.style.background="none";
+                                s7.style.background="#fe7";
+                                $('#f').text(1);
+                            break;
+                        case 8: $('#f').text(0);
+                                $('#stack1').text(1);
+                                $('#n').text(0);
+                                s7.style.background="none";
+                                s8.style.background="#fe7";
+                                $('#s8').fadeIn(inttime);
+                                $('#s9').fadeIn(inttime);
+                                context.beginPath();
+                                context.moveTo(225,200);
+                                context.lineTo(325,300);
+                                context.stroke();
+                                context.beginPath();
+                                context.arc(325,300,10,0,2*Math.PI, true);
+                                context.fill();
+                                context.fillText("Fib(0)",355,300);
+                            break;
+                        case 9: s8.style.background="none";
+                                s9.style.background="#fe7";
+                                $('#f').text(1);
+                            break;
+                        case 10: s9.style.background="none";
+                                 s10.style.background="#fe7";
+                                 $('#s10').fadeIn(inttime);
+                                 $('#stack1').text(" ");
+                                 $('#f').text(2);
+                            break;
+                        case 11: s5.style.background="none";
+                                 s10.style.background="none";
+                                 s11.style.background="#fe7";
+                                 $('#s11').fadeIn(inttime);
+                                 $('#s12').fadeIn(inttime);
+                                 $('#n').text(1);
+                                 $('#f').text(0);
+                                 $('#stack1').text(2);
+                                 context.beginPath();
+                                 context.moveTo(325,100);
+                                 context.lineTo(425,200);
+                                 context.stroke();
+                                 context.beginPath();
+                                 context.arc(425,200,10,0,2*Math.PI, true);
+                                 context.fill();
+                                 context.fillText("Fib(1)",455,200);
+                            break;
+                        case 12: s11.style.background="none";
+                                 s12.style.background="#fe7";
+                                 $('#f').text(1);
+                            break;
+                        case 13: s12.style.background="none";
+                                 s13.style.background="#fe7";
+                                 $('#s13').fadeIn(inttime);
+                                 $('#f').text(3);
+                                 $('#stack1').text(" ");
+                            break;
+                        case 14: s13.style.background="none";
+                                 s3.style.background="none";
+                                 $('#aa').text(3);
+                                 $('#n').text(0);
+                                 $('#f').text(0);
+                            break;
+                        case 15: s1.style.background="none";
+                            break;
+                    }
+                      
+                    if (kol==15) clearInterval(h);
+                }, 2000);
+            };
+        </script>
+    </body>
+</html>
