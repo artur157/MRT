@@ -16,7 +16,7 @@
     $score        = $_POST['quan_right'];     // кол-во правильно отвеченных вопросов 
     $order_number = $_POST['order_number'];
     $w            = $_POST['was'];            // массив, i-й эл = 1 <=> вопрос с ID_Q == i уже был задан  
-    $was          = explode(" ", $w); 
+    $was          = explode(" ",$w); 
     $mark;                                    // оценка после аккумуляции
 
     $x = array();                        
