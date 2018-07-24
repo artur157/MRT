@@ -3,33 +3,27 @@
     
     mysqli_query($link,"SET NAMES utf8");
 
-    $login     = $_REQUEST['login'];
-    $password  = $_REQUEST['password'];
-    $password2 = $_REQUEST['password2'];
-    $firstName = $_REQUEST['firstName'];
-    $lastName  = $_REQUEST['lastName'];
-    $email     = $_REQUEST['email'];
+    $login     = mysqli_real_escape_string($link, $_REQUEST['login']);
+    $password  = mysqli_real_escape_string($link, $_REQUEST['password']);
+    $password2 = mysqli_real_escape_string($link, $_REQUEST['password2']);
+    $firstName = mysqli_real_escape_string($link, $_REQUEST['firstName']);
+    $lastName  = mysqli_real_escape_string($link, $_REQUEST['lastName']);
+    $email     = mysqli_real_escape_string($link, $_REQUEST['email']);
 
 ?>
 
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Теория: понятие рекурсии</title>
+        <title>Регистрация</title>
         <link rel="stylesheet" href="css/myStyle.css" type="text/css">
     </head>
     <body>
-        <div id="navigation">
-            <ul>
-                <li><a href="theory1.html">Теория</a></li>
-                <li><a href="illustration.html">Иллюстрация</a></li>
-                <li><a href="test.php">Тест</a></li>
-            </ul>
-        </div>
-        
-        <div class="sidebar">
-            
-        </div>
+        <?php
+            require_once "help_functions.php";
+            printNavigation();        // вывели панель навигации
+            printSidebarTest(0);   // вывели сайдбар для теста
+        ?>
         
         <div id="page">
            <div id="center"><br><br><font size="+3">
@@ -37,6 +31,8 @@
                     // проверка корректности ввода
                     if ($password != $password2)
                         echo "Пароли не совпадают, регистрация отменена.";  
+                    else if(!preg_match("/^[a-zA-Zа-яА-Я0-9_]+$/u", $password)) // новинка
+                        echo "Пароль использует некорректные символы, регистрация отменена.";
                     else if(!preg_match("/^[a-zA-Zа-яА-Я]+$/u", $firstName)) 
                         echo "Имя пользователя задано в неправильном формате, регистрация отменена.";
                     else if(!preg_match("/^[a-zA-Zа-яА-Я]+$/u", $lastName)) 

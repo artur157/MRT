@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Cuprum:400,400i&subset=latin,cyrillic);
+﻿@import url(https://fonts.googleapis.com/css?family=Cuprum:400,400i&subset=latin,cyrillic);
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -22,7 +22,7 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	/*font-size: 100%;*/
-	font: inherit;
+	/*font: inherit;*/
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -35,6 +35,10 @@ footer, header, hgroup, menu, nav, section {
 body {
 	/*line-height: 1;*/
     color: black;
+}
+
+pre{
+    font-size: 14pt;
 }
 
 ul {
@@ -77,6 +81,22 @@ ol{
     top: 100px;
     margin-left: 100px;
     margin-right: 150px;
+    padding-bottom: 100px;
+    font-family: "Arial", sans-serif;
+    line-height: 30px;
+    /*padding: 10px;*/
+}
+
+#page_ill{
+    width: 80%;
+    height: 75%;
+    z-index: 10;
+    position: absolute;
+    left: 190px;
+    top: 100px;
+    /*margin-left: 100px;
+    margin-right: 150px;*/
+    padding-bottom: 100px;
     font-family: "Arial", sans-serif;
     line-height: 30px;
     /*padding: 10px;*/
@@ -84,6 +104,10 @@ ol{
 
 #page p{
     padding: 10px 0px;
+}
+
+.bold{
+    font-weight: bold;
 }
 
 .strong-red{
@@ -177,7 +201,7 @@ ol{
     line-height: 30px; /*собственно буквы*/
     padding-left: 10px;
     font-size: 12pt;
-    height: 80%;
+    height: 710px;
 }
 
 .sidebar ul li{
@@ -237,12 +261,12 @@ h2{
 #program{
     z-index: 10;
     position: absolute;
-    left: -150px;
+    left: /*-150*/0px;
     top: 0px;
    /* margin-left: 50px;
     margin-right: 150px;*/
-    width: 480px;
-    height: 780px;
+    width: 25%/*480px*/;  
+    height: 100%/*780px*/;
     font-family: "Arial", sans-serif;
     line-height: 30px;
     /*padding: 10px;*/
@@ -252,16 +276,42 @@ h2{
     border-width: 1px;
     border-style: solid;
     background-color: #ddbabc;
+    overflow: auto;
+}
+
+#program pre{
+    font: inherit;
+}
+
+#program_textarea{
+    z-index: 10;
+    position: absolute;
+    left: 0px/*-150px*/;
+    top: -1px;
+   /* margin-left: 50px;
+    margin-right: 150px;*/
+    width: calc(25% - 1px)/*479px*/;
+    height: 100%/*780px*/;
+    font-family: "Arial", sans-serif;
+    line-height: 30px;
+    /*padding: 10px;*/
+    padding-left: 20px;
+    padding-top: 20px;
+    border-color: chocolate;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #ddbabc;
+    overflow: auto;
 }
 
 #variables{
     z-index: 10;
     position: absolute;
-    left: 360px;
+    left: 28%/*360px*/;
     top: 0px;
     /*margin-left: 100px;
     margin-right: 150px;*/
-    width: 480px;
+    width: 25%/*480px*/;
     height: 210px;
     font-family: "Arial", sans-serif;
     line-height: 50px;
@@ -271,7 +321,8 @@ h2{
     border-color: chocolate;
     border-width: 1px;
     border-style: solid;
-    background-color: #cdbadc;
+    background-color: #d3badc;
+    overflow: auto;
 }
 
 #variables p{
@@ -292,7 +343,7 @@ h2{
 
 #stack1{
     position: absolute;
-    left: 380px;
+    left: 78%/*380px*/;
     top: 10px;
     width: 40px;
     height: 40px;
@@ -305,7 +356,7 @@ h2{
 
 #stack2{
     position: absolute;
-    left: 380px;
+    left: 78%/*380px*/;
     top: 50px;
     width: 40px;
     height: 40px;
@@ -318,7 +369,7 @@ h2{
 
 #stack3{
     position: absolute;
-    left: 380px;
+    left: 78%/*380px*/;
     top: 90px;
     width: 40px;
     height: 40px;
@@ -331,7 +382,7 @@ h2{
 
 #stack4{
     position: absolute;
-    left: 380px;
+    left: 78%/*380px*/;
     top: 130px;
     width: 40px;
     height: 40px;
@@ -344,7 +395,7 @@ h2{
 
 #stack5{
     position: absolute;
-    left: 380px;
+    left: 78%/*380px*/;
     top: 170px;
     width: 40px;
     height: 40px;
@@ -358,12 +409,12 @@ h2{
 #mod_body{
     z-index: 10;
     position: absolute;
-    left: 360px;
+    left: 28%/*360px*/;
     top: 240px;
     /*margin-left: 100px;
     margin-right: 150px;*/
-    width: 480px;
-    height: 540px;
+    width: 25%/*480px*/;
+    height: calc(100% - 240px)/*540px*/;
     font-family: "Arial", sans-serif;
     line-height: 30px;
     /*padding: 10px;*/
@@ -373,16 +424,21 @@ h2{
     border-width: 1px;
     border-style: solid;
     background-color: #cdcebc;
+    overflow: auto;
+}
+
+#mod_body pre{
+    font: inherit;
 }
 
 #scheme{
     z-index: 10;
     position: absolute;
-    left: 870px;
+    left: 56%/*870px*/;
     top: 0px;
     /*margin-left: 100px;
     margin-right: 150px;*/
-    width: 650px;
+    width: calc(52% - 12px)/*650px*/;
     height: 500px;
     font-family: "Arial", sans-serif;
     line-height: 30px;
@@ -390,15 +446,38 @@ h2{
     border-color: chocolate;
     border-width: 1px;
     border-style: solid;
+    background-color: #ddcabc;
+    /*overflow: auto;*/
 }
 
 #scheme canvas{
     font-size: 30pt;
+    color: aquamarine;
+}
+
+#console{
+    padding-left: 20px;
+    padding-top: 20px;
+    z-index: 10;
+    position: absolute;
+    left: 56%/*870px*/;
+    top: 510px;
+    /*margin-left: 100px;
+    margin-right: 150px;*/
+    width: calc(52% - 32px)/*630px*/;
+    height: calc(100% - 510px)/*270px*/;
+    font-family: "Arial", sans-serif;
+    line-height: 25px;
+    border-color: chocolate;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #c5c5cf;
+    overflow: auto;
 }
 
 #submit {
     margin-top: 10px;
-    padding: 5px 3px;
+    padding: 10px 25px 10px 25px;
     background: purple; /* Синий цвет фона */ 
     color: yellow; /* Белые буквы */ 
     font-size: 20pt; /* Размер шрифта в пунктах */
@@ -409,8 +488,21 @@ h2{
     font-size: 40pt;
 }
 
-#center {
+.center {
     text-align: center;
+}
+
+#pagetest{
+    z-index: 10;
+    position: relative;
+    left: 250px;
+    top: 100px;
+    margin-left: 100px;
+    margin-right: 150px;
+    font-family: "Arial", sans-serif;
+    line-height: 30px;
+    /*padding: 10px;*/
+    width: 75%;
 }
 
 table {
@@ -423,7 +515,7 @@ table {
 }
 
 td {
-  width: 50%;
+  width: 1000 px;
   font-size: 20 pt;
   padding: 5px 7px;
   border: 3px solid purple;
@@ -436,4 +528,61 @@ td {
     margin-left:4em;
     text-align:left;
     display:block;
+}
+
+.formcenter{
+    margin-left:34%;
+}
+
+.formtask{
+    width:100%;
+}
+
+form {
+    width:30%;
+    border:0px solid;
+    /*top: 82px; */
+    /*left: 170px; */
+    bottom: 0; 
+    right: 0;
+    background: linear-gradient(90deg,
+		rgba(255,255,255,0.1) 0%,
+		rgba(255,255,255, 0.3) 25%,
+		rgba(255,255,255, 0.5) 75%,
+		rgba(255,255,255, 0.1) 100%);
+    box-shadow: 0 0 25px rgba(0,0,0, 0.1), inset 0 0 1px rgba(255,255,255, 0.6);
+    border-radius: 20px;
+    padding: 25px 15px 25px 10px;
+    color: navy;
+    text-shadow: 1px 1px 1px #FFF;
+    border:1px solid #FFF;
+}
+
+select{
+    font-family: "Book Antiqua", serif;
+	font-size: 12pt;
+    color: navy;
+}
+
+input{
+    font-family: "Book Antiqua", serif;
+	font-size: 12pt;
+    color: navy;
+}
+
+
+textarea{
+    color: purple;
+}
+
+.tbvton{
+    background-color:#dcccfc;
+    color: brown;
+    font-family: "Cuprum", sans-serif;
+    font-size: 12pt;
+}
+
+.minitest_result{
+    color: blue; 
+    font-size: 20pt;
 }

@@ -3,12 +3,12 @@
     
     mysqli_query($link,"SET NAMES utf8");
 
-    $login     = $_REQUEST['login'];
-    $email     = $_REQUEST['email'];
+    $login     = mysqli_real_escape_string($link, $_REQUEST['login']);
+    $email     = mysqli_real_escape_string($link, $_REQUEST['email']);
 
     function GeneratePassword(){
         $chars="qazxswedcvfrtgbnhyujmkiolp1234567890QAZXSWEDCVFRTGBNHYUJMKIOLP";  // символы, которые будут использоваться в пароле 
-        $max=10;                // кол-о символов в пароле 
+        $max=10;                // кол-во символов в пароле 
         $size=StrLen($chars)-1; // длина $chars
         $password=null;         // определяем пустую переменную, в которую и будем записывать символы
         while($max--)           // создаём пароль 
@@ -20,21 +20,15 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Теория: понятие рекурсии</title>
+        <title>Забыли пароль?</title>
         <link rel="stylesheet" href="css/myStyle.css" type="text/css">
     </head>
     <body>
-        <div id="navigation">
-            <ul>
-                <li><a href="theory1.html">Теория</a></li>
-                <li><a href="illustration.html">Иллюстрация</a></li>
-                <li><a href="test.php">Тест</a></li>
-            </ul>
-        </div>
-        
-        <div class="sidebar">
-            
-        </div>
+        <?php
+            require_once "help_functions.php";
+            printNavigation();        // вывели панель навигации
+            printSidebarTest(0);   // вывели сайдбар для теста
+        ?>
         
         <div id="page">
            <div id="center"><br><br><font size="+3">
@@ -58,17 +52,17 @@
                         $row = mysqli_fetch_row($result);
                         $id = $row[0];  
                         
-                        $password = crypt($password, 'xx');
-                        $query = "update users set `Password`='{$password}' where `ID`={$id};";
+                        $password2 = crypt($password, 'xx');
+                        $query = "update users set `Password`='{$password2}' where `ID`={$id};";
                         $result = mysqli_query($link, $query);
                         if (!$result){         // проблемы с запросом
                             echo 'Cannot run query.';
                             exit;
                         }
                         
-                        //mail($email, "Новый пароль в MyRecursionTraining", "Ваш новый пароль: ".$password); 
-                        $mail =& Mail::factory('smtp', array('host' => 'localhost', 'port' => 25));
-                        $mail->send($email, "Новый пароль в MyRecursionTraining", "Ваш новый пароль: ".$password);    
+                        mail($email, "Новый пароль в MyRecursionTraining", "Ваш новый пароль: ".$password); 
+                        //$mail =& Mail::factory('smtp', array('host' => 'localhost', 'port' => 25));
+                        //$mail->send($email, "Новый пароль в MyRecursionTraining", "Ваш новый пароль: ".$password);    
                         
                         echo 'Новый пароль выслан на почтовый ящик '.$email;
                     }

@@ -4,10 +4,10 @@
     mysqli_query($link,"SET NAMES utf8");
 
     session_start();
-    $login     = $_SESSION['login'];
-    $firstName = $_SESSION['firstName'];
-    $lastName  = $_SESSION['lastName'];
-    $mark      = $_SESSION['mark']; 
+    $login     = mysqli_real_escape_string($link, $_SESSION['login']);
+    $firstName = strip_tags($_SESSION['firstName']);
+    $lastName  = strip_tags($_SESSION['lastName']);
+    //$mark      = $_SESSION['mark']; 
 
     function TransMark($ch){
         switch ($ch){
@@ -28,7 +28,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Теория: понятие рекурсии</title>
+        <title>Результаты</title>
         <link rel="stylesheet" href="css/myStyle.css" type="text/css">
     </head>
     <body>
@@ -51,7 +51,7 @@
             <font size="+2"><br><?php echo $firstName." ".$lastName; ?><br></font>  <!-- выводим имя -->
             <?php
                 // находим id юзера
-                $query = "select * from users where `Login`='{$login}';" ;
+                $query = "select * from users where `Login`='{$login}';";
                 $result = mysqli_query($link, $query);
                 if (!$result){         // проблемы с запросом
                     echo 'Cannot run query.';
@@ -61,7 +61,7 @@
                 $row = mysqli_fetch_row($result);
                 $id = $row[0];
             
-                $query = "select * from results where `ID_U`={$id};" ;
+                $query = "select * from results where `ID_U`={$id} order by date,id;" ;
                 $result = mysqli_query($link, $query);
                 if (!$result){         // проблемы с запросом
                     echo 'Cannot run query.';

@@ -9,6 +9,4 @@
      die("<p>Ошибка при выборе базы данных ".DATABASE_NAME.": {mysqli_error($link)}</p>");
  }
 
- //header("Location: test_q.php");
- //exit();
 ?>

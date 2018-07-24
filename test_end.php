@@ -4,7 +4,7 @@
     mysqli_query($link,"SET NAMES utf8");
 
     session_start();
-    $login     = $_SESSION['login'];
+    $login     = mysqli_real_escape_string($link, $_SESSION['login']);
     $firstName = $_SESSION['firstName'];
     $lastName  = $_SESSION['lastName'];
     $mark      = $_SESSION['mark']; 
@@ -16,23 +16,15 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Теория: понятие рекурсии</title>
+        <title>Тест</title>
         <link rel="stylesheet" href="css/myStyle.css" type="text/css">
     </head>
     <body>
-        <div id="navigation">
-            <ul>
-                <li><a href="theory1.html">Теория</a></li>
-                <li><a href="illustration.html">Иллюстрация</a></li>
-                <li><a href="test.php">Тест</a></li>
-            </ul>
-        </div>
-        
-        <div class="sidebar">
-            <font size="+2"><br><?php echo $firstName." ".$lastName; ?><br></font>
-            <a href="test.php">Выйти</a><br><br>
-            <a href="result.php">Просмотреть мои результаты</a>
-        </div>
+        <?php
+            require_once "help_functions.php";
+            printNavigation();        // вывели панель навигации
+            printSidebarTest(1);    // вывели сайдбар для теста
+        ?>
         
         <div id="page">
             <br><h1>Тест</h1><br><br>              
@@ -50,7 +42,7 @@
                     
                     // занести в бд
                     // найти id
-                    $query = "select * from users where `Login`='{$login}';" ;
+                    $query = "select * from users where `Login`='{$login}';";
                     $result = mysqli_query($link, $query);
                     if (!$result){         // проблемы с запросом
                         echo 'Cannot run query.';

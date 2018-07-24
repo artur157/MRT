@@ -8,7 +8,7 @@
     //mysqli_set_charset($link, 'utf8');  // устанавливает кодировку (для русских букв)
     mysqli_query($link,"SET NAMES utf8");
 
-    $query = "select * from users where `Login`='{$login}' and `Password`='{$password}';" ;
+    $query = "select * from users where `Login`='{$login}' and `Password`='{$password}';";
     $result = mysqli_query($link, $query);
 
     if (!$result){         // проблемы с запросом
@@ -46,25 +46,17 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Теория: понятие рекурсии</title>
+        <title>Тест</title>
         <link rel="stylesheet" href="css/myStyle.css" type="text/css">
     </head>
     <body>
-        <div id="navigation">
-            <ul>
-                <li><a href="theory1.html">Теория</a></li>
-                <li><a href="illustration.html">Иллюстрация</a></li>
-                <li><a href="test.php">Тест</a></li>
-            </ul>
-        </div>
+        <?php
+            require_once "help_functions.php";
+            printNavigation();        // вывели панель навигации
+            printSidebarTest(1);    // вывели сайдбар для теста
+        ?>
         
-        <div class="sidebar">
-            <font size="+2"><br><?php echo $firstName." ".$lastName; ?><br></font>
-            <a href="test.php">Выйти</a><br><br>
-            <a href="result.php">Просмотреть мои результаты</a>
-        </div>
-        
-        <div id="page">
+        <div id="pagetest">
             <br><h1>Тест</h1><br>
             <br><?php echo "Добро пожаловать, ".$firstName." ".$lastName."!"; ?><br><br>
             <form action="test_q.php" method="POST">
